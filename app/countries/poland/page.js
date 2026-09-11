@@ -1,0 +1,20 @@
+import CountryDetail from "@/components/CountryDetail";
+import CTABanner from "@/components/CTABanner";
+import { getCountry } from "@/data/countries";
+import { site } from "@/lib/siteConfig";
+
+const country = getCountry("poland");
+
+export const metadata = {
+  title: `Workforce Supply for Poland | ${site.name}`,
+  description: country.body,
+};
+
+export default function PolandPage() {
+  return (
+    <>
+      <CountryDetail country={country} />
+      <CTABanner />
+    </>
+  );
+}
