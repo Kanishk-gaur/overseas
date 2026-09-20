@@ -3,8 +3,6 @@ import { countries } from "@/data/countries";
 import CountryCard from "./CountryCard";
 
 export default function CountriesSection({ preview = false }) {
-  const list = preview ? countries.slice(0, 6) : countries;
-
   return (
     <section className="section-y" id="countries">
       <div className="container-x">
@@ -23,7 +21,7 @@ export default function CountriesSection({ preview = false }) {
           )}
         </div>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {list.map((c) => (
+          {countries.map((c) => (
             <CountryCard key={c.slug} country={c} />
           ))}
         </div>
