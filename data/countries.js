@@ -3,6 +3,8 @@ export const countries = [
     slug: "russia",
     name: "Russia",
     flag: "🇷🇺",
+    image:
+      "https://images.unsplash.com/photo-1513326738677-b964603b136d?q=80&w=1200&auto=format&fit=crop",
     region: "Europe & CIS",
     heading: "Workforce Supply for Russia",
     body: "We supply pre-vetted skilled and semi-skilled workers to businesses operating in Russia across construction, manufacturing, hospitality, welding, and technical trades. Our desk handles work permits, employer contracts, and local orientation on your behalf.",
@@ -16,6 +18,8 @@ export const countries = [
     slug: "japan",
     name: "Japan",
     flag: "🇯🇵",
+    image:
+      "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=1200&auto=format&fit=crop",
     region: "Asia",
     heading: "Workforce Supply for Japan",
     body: "We help employers hire under the Specified Skilled Worker (SSW) and Technical Intern Training Program (TITP) visa categories, and support Engineer/Specialist visa sponsorship for technical roles. Our team manages candidate skill testing, Japanese language readiness (JLPT/JFT), and full employer-side coordination.",
@@ -29,6 +33,8 @@ export const countries = [
     slug: "germany",
     name: "Germany",
     flag: "🇩🇪",
+    image:
+      "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=1200&auto=format&fit=crop",
     region: "Europe",
     heading: "Workforce Supply for Germany",
     body: "We support German employers hiring nurses, technicians, IT professionals, and tradespeople through the EU Blue Card and Skilled Worker Visa routes — including qualification recognition, language readiness (German A1/A2/B1), and visa documentation.",
@@ -42,6 +48,8 @@ export const countries = [
     slug: "uae",
     name: "UAE",
     flag: "🇦🇪",
+    image:
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200&auto=format&fit=crop",
     region: "Gulf",
     heading: "Workforce Supply for the UAE",
     body: "We supply construction, facilities management, and hospitality workforce to businesses across the UAE, along with MEP technicians and IT support staff. Our team manages employment visa sponsorship, labor card processing, and Emiratisation-compliant documentation.",
@@ -55,6 +63,8 @@ export const countries = [
     slug: "saudi-arabia",
     name: "Saudi Arabia",
     flag: "🇸🇦",
+    image:
+      "https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?q=80&w=1200&auto=format&fit=crop",
     region: "Gulf",
     heading: "Workforce Supply for Saudi Arabia",
     body: "Vision 2030's infrastructure and construction boom has driven strong demand for skilled and semi-skilled labor across Saudi Arabia. We handle sourcing, Iqama sponsorship, and work visa documentation for client companies scaling up project workforce.",
@@ -68,6 +78,8 @@ export const countries = [
     slug: "qatar",
     name: "Qatar",
     flag: "🇶🇦",
+    image:
+      "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?q=80&w=1200&auto=format&fit=crop",
     region: "Gulf",
     heading: "Workforce Supply for Qatar",
     body: "We supply construction, hospitality, and facilities management workforce for ongoing infrastructure and maintenance projects across Qatar, with full work visa sponsorship handled on your behalf.",
@@ -81,6 +93,8 @@ export const countries = [
     slug: "poland",
     name: "Poland",
     flag: "🇵🇱",
+    image:
+      "https://images.unsplash.com/photo-1607427293702-036933bbf746?q=80&w=1200&auto=format&fit=crop",
     region: "Europe",
     heading: "Workforce Supply for Poland",
     body: "As an EU manufacturing and logistics hub, Poland has strong demand for warehouse, factory, and technical workforce. We manage Type D work visa and EU work permit documentation for client companies hiring into Poland.",
@@ -94,6 +108,8 @@ export const countries = [
     slug: "israel",
     name: "Israel",
     flag: "🇮🇱",
+    image:
+      "https://images.unsplash.com/photo-1542361345-89e58247f2d5?q=80&w=1200&auto=format&fit=crop",
     region: "Middle East",
     heading: "Workforce Supply for Israel",
     body: "We supply construction and caregiving workforce to Israeli employers under the B/1 work visa route, managing candidate screening, documentation, and pre-deployment orientation.",

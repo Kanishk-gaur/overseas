@@ -1,7 +1,7 @@
 export const hiringTracks = [
   {
     id: "technical",
-    icon: "🎓",
+    icon: "graduation-cap",
     title: "Technical Hiring Track",
     subtitle: "For engineers, IT professionals & diploma-qualified technicians",
     steps: [
@@ -29,7 +29,7 @@ export const hiringTracks = [
   },
   {
     id: "non-technical",
-    icon: "🛠️",
+    icon: "wrench",
     title: "Non-Technical Hiring Track",
     subtitle: "For trade-certified and experience-verified workers",
     steps: [
@@ -59,22 +59,22 @@ export const hiringTracks = [
 
 export const engagementModels = [
   {
-    icon: "📦",
+    icon: "package",
     title: "Bulk Workforce Orders",
     body: "For headcounts of 10 or more, sourced and deployed in phased or single batches aligned to your project timeline.",
   },
   {
-    icon: "🎯",
+    icon: "target",
     title: "Single & Specialist Hires",
     body: "For individual technical or leadership roles where precise qualification matching matters more than volume.",
   },
   {
-    icon: "🤝",
+    icon: "handshake",
     title: "Direct Placement",
     body: "Workers are hired directly onto your payroll under your employment contract, with us managing sourcing and compliance only.",
   },
   {
-    icon: "🔁",
+    icon: "repeat",
     title: "Ongoing Contract Staffing",
     body: "We remain the employer of record for the contract duration, giving you workforce flexibility without direct HR overhead.",
   },

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Icon from "./Icon";
 import { countries } from "@/data/countries";
 
 const steps = ["Company Details", "Workforce Requirement", "Documents", "Review & Submit"];
@@ -41,7 +42,7 @@ export default function RequirementForm() {
   if (submitted) {
     return (
       <div className="mx-auto max-w-xl rounded-2xl border border-border bg-white p-10 text-center">
-        <span className="text-4xl">✅</span>
+        <Icon name="check-circle" className="mx-auto h-12 w-12 text-gold" />
         <h2 className="mt-4 text-xl font-bold text-navy">Thank you for your requirement!</h2>
         <p className="mt-2 text-sm text-gray-600">
           Our account management team will review your job order and contact you within

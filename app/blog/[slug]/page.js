@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
-import { posts, getPost } from "@/data/blog";
+import { posts, getPost, categoryCoverImages } from "@/data/blog";
 import { countries } from "@/data/countries";
 import CTABanner from "@/components/CTABanner";
 import { site } from "@/lib/siteConfig";
@@ -28,8 +29,17 @@ export default async function BlogPostPage({ params }) {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-navy to-navy-dark">
-        <div className="container-x max-w-3xl py-14 md:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy to-navy-dark">
+        <Image
+          src={categoryCoverImages[post.category]}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-navy/90 to-navy-dark/90" />
+        <div className="container-x relative max-w-3xl py-14 md:py-20">
           <Link href="/blog" className="text-sm text-gold-light">
             ← Back to Blog
           </Link>

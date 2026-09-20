@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Icon from "./Icon";
 import { services } from "@/data/services";
 
 function TiltCard({ id, icon, title, body, included, index, preview }) {
@@ -19,14 +20,16 @@ function TiltCard({ id, icon, title, body, included, index, preview }) {
       }}
       className="card-tilt scroll-mt-24 rounded-2xl border border-border bg-white p-6 shadow-sm hover:shadow-xl"
     >
-      <span className="text-3xl">{icon}</span>
+      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy/5">
+        <Icon name={icon} className="h-6 w-6 text-navy" />
+      </span>
       <h3 className="mt-4 font-semibold text-navy">{title}</h3>
       <p className="mt-2 text-sm text-gray-600 leading-relaxed">{body}</p>
       {!preview && included && (
         <ul className="mt-4 space-y-1.5 border-t border-border pt-4">
           {included.map((item) => (
             <li key={item} className="flex items-start gap-2 text-xs text-gray-500">
-              <span className="mt-0.5 text-gold">✓</span>
+              <Icon name="check-circle" className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold" />
               {item}
             </li>
           ))}

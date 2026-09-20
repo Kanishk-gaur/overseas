@@ -17,6 +17,7 @@ export default function ServicesPage() {
       <PageHero
         title="Our Services"
         subtitle="Complete workforce supply support — from candidate sourcing to ongoing account management."
+        image="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop"
       />
       <Services />
       <ProcessSteps />

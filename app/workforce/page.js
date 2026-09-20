@@ -1,4 +1,5 @@
 import PageHero from "@/components/PageHero";
+import WorkforceCategories from "@/components/WorkforceCategories";
 import WorkforceAvailability from "@/components/WorkforceAvailability";
 import CTABanner from "@/components/CTABanner";
 import { site } from "@/lib/siteConfig";
@@ -14,7 +15,9 @@ export default function WorkforcePage() {
       <PageHero
         title="Available Workforce"
         subtitle="Browse workforce categories ready for deployment — or submit your requirement even if your trade isn't listed."
+        image="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop"
       />
+      <WorkforceCategories preview />
       <WorkforceAvailability />
       <CTABanner />
     </>

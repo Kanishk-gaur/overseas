@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Icon from "./Icon";
 import { workforce } from "@/data/workforce";
 import { countries } from "@/data/countries";
 
@@ -82,12 +83,16 @@ export default function WorkforceAvailability({ preview = false }) {
                   <td className="px-4 py-3 font-medium text-navy">{item.title}</td>
                   <td className="px-4 py-3">
                     <span
-                      className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${
+                      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium ${
                         item.type === "Technical"
                           ? "bg-navy/10 text-navy"
                           : "bg-gold/15 text-gold"
                       }`}
                     >
+                      <Icon
+                        name={item.type === "Technical" ? "graduation-cap" : "wrench"}
+                        className="h-3.5 w-3.5"
+                      />
                       {item.type}
                     </span>
                   </td>

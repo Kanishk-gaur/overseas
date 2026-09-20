@@ -15,6 +15,7 @@ export default function CountriesPage() {
       <PageHero
         title="Countries We Supply To"
         subtitle={`Source workforce across ${countries.length} of the world's most in-demand labor markets.`}
+        image="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1600&auto=format&fit=crop"
       />
       <CountriesSection />
       <CTABanner />

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Icon from "./Icon";
 import { hiringTracks, engagementModels } from "@/data/howWeWork";
 
 export default function HowWeWork() {
@@ -34,7 +35,7 @@ export default function HowWeWork() {
                     : "bg-muted text-gray-600 hover:bg-border/60"
                 }`}
               >
-                <span>{t.icon}</span> {t.title}
+                <Icon name={t.icon} className="h-4 w-4" /> {t.title}
               </button>
             ))}
           </div>
@@ -81,7 +82,9 @@ export default function HowWeWork() {
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {engagementModels.map((m) => (
               <div key={m.title} className="rounded-2xl border border-border bg-white p-6">
-                <span className="text-3xl">{m.icon}</span>
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy/5">
+                  <Icon name={m.icon} className="h-6 w-6 text-navy" />
+                </span>
                 <h3 className="mt-3 font-semibold text-navy">{m.title}</h3>
                 <p className="mt-2 text-sm text-gray-600 leading-relaxed">{m.body}</p>
               </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Icon from "./Icon";
 import { industries } from "@/data/industries";
 import { workforce } from "@/data/workforce";
 import { countries } from "@/data/countries";
@@ -30,9 +31,13 @@ export default function IndustryBreakdown() {
                 className="flex flex-col gap-4 rounded-2xl border border-border bg-white p-6 sm:flex-row sm:items-center sm:justify-between"
               >
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">{ind.icon}</span>
+                  <span className="rounded-lg bg-muted p-2">
+                    <Icon name={ind.icon} className="h-5 w-5 text-navy" />
+                  </span>
                   <div>
-                    <h3 className="font-semibold text-navy">{ind.name}</h3>
+                    <Link href={`/industries/${ind.slug}`} className="font-semibold text-navy hover:text-gold">
+                      {ind.name}
+                    </Link>
                     <p className="text-sm text-gray-500">{ind.roles}</p>
                     {activeCountries.length > 0 && (
                       <div className="mt-2 flex flex-wrap gap-1.5">

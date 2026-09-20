@@ -1,24 +1,26 @@
+import Link from "next/link";
+import Icon from "./Icon";
 import { site } from "@/lib/siteConfig";
 import { whyChooseUs } from "@/data/services";
 
 const values = [
   {
-    icon: "🛡️",
+    icon: "shield",
     title: "Compliance First",
     body: "Every placement is built around documentation and visa sponsorship that will hold up to audit, not just paperwork that gets a worker on a plane.",
   },
   {
-    icon: "🔍",
+    icon: "search",
     title: "Verified, Not Assumed",
     body: "Credentials, trade certificates, and work history are checked before a candidate is ever shortlisted for your job order.",
   },
   {
-    icon: "⚡",
+    icon: "zap",
     title: "Speed With Accountability",
     body: "We quote realistic lead times and stand behind them with a dedicated account manager for every order.",
   },
   {
-    icon: "🤝",
+    icon: "handshake",
     title: "Long-Term Partnership",
     body: "We measure success in repeat orders and renewed contracts, not one-off placements.",
   },
@@ -26,7 +28,7 @@ const values = [
 
 const certifications = [
   { label: `Licensed Agency — No. ${site.licenseNo}` },
-  { label: "Registered with [License Authority Name]" },
+  { label: `Registered with ${site.licenseAuthority}` },
   { label: "GDPR-Aware Data Handling" },
   { label: "ISO-Aligned Documentation Process" },
 ];
@@ -34,6 +36,33 @@ const certifications = [
 export default function About({ preview = false }) {
   return (
     <section className="section-y">
+      {!preview && (
+        <div className="container-x mb-14">
+          <div className="flex flex-wrap items-center justify-center gap-2 rounded-full bg-muted px-5 py-2.5 text-center text-xs font-semibold text-navy sm:text-sm">
+            <Icon name="check-circle" className="h-4 w-4 text-gold" />
+            <span>
+              Approved &amp; Licensed — {site.licenseAuthority}, License No. {site.licenseNo}
+            </span>
+          </div>
+
+          <div className="mx-auto mt-10 max-w-2xl text-center">
+            <h2 className="text-2xl font-bold text-navy md:text-3xl">
+              Welcome to {site.name}
+            </h2>
+            <p className="mt-4 text-gray-600 leading-relaxed">
+              We wish you a warm welcome to {site.name} — a government-registered
+              recruiting and staffing agency helping businesses across the Gulf,
+              Europe, and Asia build reliable overseas workforces. From punctual
+              delivery of top candidates to precise document verification, we run
+              every job order on business ethics and professionalism first.
+            </p>
+            <Link href="/contact" className="btn-primary mt-6 inline-flex">
+              Reach Us →
+            </Link>
+          </div>
+        </div>
+      )}
+
       <div className="container-x grid gap-10 lg:grid-cols-2 lg:items-center">
         <div>
           <h2 className="text-2xl font-bold text-navy md:text-3xl">Who We Are</h2>
@@ -79,7 +108,7 @@ export default function About({ preview = false }) {
           <ul className="mt-4 space-y-3">
             {whyChooseUs.map((item) => (
               <li key={item} className="flex items-start gap-2.5 text-sm text-white/80">
-                <span className="mt-0.5 text-gold-light">✓</span>
+                <Icon name="check-circle" className="mt-0.5 h-4 w-4 shrink-0 text-gold-light" />
                 {item}
               </li>
             ))}
@@ -129,7 +158,9 @@ export default function About({ preview = false }) {
             <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {values.map((v) => (
                 <div key={v.title} className="rounded-xl border border-border bg-white p-5">
-                  <span className="text-2xl">{v.icon}</span>
+                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-navy/5">
+                    <Icon name={v.icon} className="h-5 w-5 text-navy" />
+                  </span>
                   <h4 className="mt-3 text-sm font-semibold text-navy">{v.title}</h4>
                   <p className="mt-1.5 text-xs text-gray-600 leading-relaxed">{v.body}</p>
                 </div>

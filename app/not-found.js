@@ -1,10 +1,13 @@
 import Link from "next/link";
+import Icon from "@/components/Icon";
 
 export default function NotFound() {
   return (
     <section className="section-y">
       <div className="container-x flex flex-col items-center text-center">
-        <span className="text-5xl">🧭</span>
+        <span className="flex h-16 w-16 items-center justify-center rounded-full bg-navy/5">
+          <Icon name="compass" className="h-8 w-8 text-navy" />
+        </span>
         <h1 className="mt-4 text-3xl font-bold text-navy md:text-4xl">
           This page isn&apos;t part of our route yet
         </h1>

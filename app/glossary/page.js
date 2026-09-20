@@ -15,6 +15,7 @@ export default function GlossaryPage() {
       <PageHero
         title="Visa & Compliance Glossary"
         subtitle="Quick reference for the visa categories and terms your HR and legal teams will encounter."
+        image="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1600&auto=format&fit=crop"
       />
       <Glossary />
       <CTABanner />

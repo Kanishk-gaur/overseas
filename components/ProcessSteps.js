@@ -3,12 +3,12 @@
 import { motion } from "framer-motion";
 import { processSteps } from "@/data/services";
 
-export default function ProcessSteps() {
+export default function ProcessSteps({ title = "How It Works" }) {
   return (
     <section className="section-y">
       <div className="container-x">
         <div className="max-w-2xl">
-          <h2 className="text-2xl font-bold text-navy md:text-3xl">How It Works</h2>
+          <h2 className="text-2xl font-bold text-navy md:text-3xl">{title}</h2>
         </div>
 
         <div className="relative mt-12">

@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
+import Icon from "./Icon";
 import { stats } from "@/data/services";
 
 const CountUp = dynamic(() => import("react-countup"), {
@@ -22,7 +23,9 @@ export default function StatsBar() {
             transition={{ duration: 0.5, delay: i * 0.1 }}
             className="flex flex-col items-center text-center"
           >
-            <span className="text-3xl">{s.icon}</span>
+            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gold/15">
+              <Icon name={s.icon} className="h-6 w-6 text-gold" />
+            </span>
             <span className="mt-2 text-2xl font-bold text-navy md:text-3xl">
               <CountUp end={s.number} duration={2} enableScrollSpy scrollSpyOnce />
               {s.suffix}

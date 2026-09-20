@@ -5,6 +5,7 @@ import { EffectCoverflow, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import Icon from "./Icon";
 import { testimonials } from "@/data/testimonials";
 
 export default function Testimonials() {
@@ -41,7 +42,8 @@ export default function Testimonials() {
             {testimonials.map((t, i) => (
               <SwiperSlide key={i}>
                 <div className="h-full rounded-2xl bg-white/5 border border-white/10 p-6 backdrop-blur">
-                  <p className="text-white/80 text-sm leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
+                  <Icon name="quote" className="h-6 w-6 text-gold-light/70" />
+                  <p className="mt-3 text-white/80 text-sm leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
                   <div className="mt-4">
                     <p className="text-sm font-semibold text-gold-light">{t.name}</p>
                     <p className="text-xs text-white/50">{t.detail}</p>

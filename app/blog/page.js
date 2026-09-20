@@ -11,7 +11,11 @@ export const metadata = {
 export default function BlogPage() {
   return (
     <>
-      <PageHero title="Latest Updates & Guides" subtitle="Practical guides for employers sourcing overseas workforce." />
+      <PageHero
+        title="Latest Updates & Guides"
+        subtitle="Practical guides for employers sourcing overseas workforce."
+        image="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1600&auto=format&fit=crop"
+      />
       <BlogList />
     </>
   );

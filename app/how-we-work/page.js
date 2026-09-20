@@ -16,6 +16,7 @@ export default function HowWeWorkPage() {
       <PageHero
         title="How We Work"
         subtitle="A dual-track sourcing process built for technical and non-technical hiring — plus the engagement models we support."
+        image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop"
       />
       <HowWeWork />
       <FAQ />

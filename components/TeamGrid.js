@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Icon from "./Icon";
 import { team } from "@/data/team";
 
 export default function TeamGrid() {
@@ -25,8 +26,10 @@ export default function TeamGrid() {
               onClick={() => setActive(active === i ? null : i)}
               className="group relative overflow-hidden rounded-2xl border border-border bg-white text-left"
             >
-              <div className="flex aspect-square items-center justify-center bg-navy/5 text-4xl">
-                🧑‍💼
+              <div className="flex aspect-square items-center justify-center bg-gradient-to-br from-navy/10 to-gold/10">
+                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-navy/10">
+                  <Icon name="user" className="h-8 w-8 text-navy/50" />
+                </span>
               </div>
               <div className="p-3">
                 <p className="text-sm font-semibold text-navy">{member.name}</p>

@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Icon from "./Icon";
 import {
   mainNav,
   companyMegaMenu,
   servicesMegaMenu,
+  jobSeekerNav,
   site,
 } from "@/lib/siteConfig";
 import { countries, regions } from "@/data/countries";
@@ -28,7 +30,7 @@ export default function Navbar() {
       <div className="hidden md:flex bg-navy-dark text-white/80 text-sm">
         <div className="container-x flex items-center justify-end gap-6 py-1.5">
           <a href={site.phoneHref} className="flex items-center gap-1.5 hover:text-white">
-            <span aria-hidden>📞</span> {site.phone}
+            <Icon name="phone" className="h-3.5 w-3.5" /> {site.phone}
           </a>
           <a
             href={site.whatsappHref}
@@ -36,10 +38,10 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 hover:text-white"
           >
-            <span aria-hidden>💬</span> WhatsApp
+            <Icon name="message-circle" className="h-3.5 w-3.5" /> WhatsApp
           </a>
           <a href={`mailto:${site.email}`} className="flex items-center gap-1.5 hover:text-white">
-            <span aria-hidden>✉️</span> {site.email}
+            <Icon name="mail" className="h-3.5 w-3.5" /> {site.email}
           </a>
         </div>
       </div>
@@ -65,7 +67,7 @@ export default function Navbar() {
                   className="whitespace-nowrap px-2.5 py-2 text-sm font-medium text-white/90 hover:text-gold-light rounded-md transition-colors inline-block"
                 >
                   {item.name}
-                  {item.mega && <span className="ml-1 text-xs">▾</span>}
+                  {item.mega && <Icon name="chevron-down" className="ml-1 inline h-3.5 w-3.5" />}
                 </Link>
 
                 {item.mega === "company" && openMega === "company" && (
@@ -140,10 +142,10 @@ export default function Navbar() {
                       {industries.map((ind) => (
                         <Link
                           key={ind.name}
-                          href="/industries"
+                          href={`/industries/${ind.slug}`}
                           className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm hover:bg-muted"
                         >
-                          <span>{ind.icon}</span> {ind.name}
+                          <Icon name={ind.icon} className="h-4 w-4 text-gold" /> {ind.name}
                         </Link>
                       ))}
                     </div>
@@ -153,18 +155,21 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden xl:block">
+          <div className="hidden xl:flex items-center gap-2">
+            <Link href={jobSeekerNav.href} className="btn-secondary text-sm px-5 py-2">
+              {jobSeekerNav.name}
+            </Link>
             <Link href="/request-workforce" className="btn-primary text-sm px-5 py-2">
               Request Workforce
             </Link>
           </div>
 
           <button
-            className="xl:hidden text-white text-2xl"
+            className="xl:hidden text-white"
             onClick={() => setMobileOpen((o) => !o)}
             aria-label="Toggle menu"
           >
-            {mobileOpen ? "✕" : "☰"}
+            <Icon name={mobileOpen ? "x" : "menu"} className="h-6 w-6" />
           </button>
         </div>
 
@@ -195,13 +200,22 @@ export default function Navbar() {
                 )}
               </div>
             ))}
-            <Link
-              href="/request-workforce"
-              className="btn-primary text-sm px-5 py-2 mt-4 w-full"
-              onClick={() => setMobileOpen(false)}
-            >
-              Request Workforce
-            </Link>
+            <div className="mt-4 flex flex-col gap-2">
+              <Link
+                href={jobSeekerNav.href}
+                className="btn-secondary text-sm px-5 py-2 w-full"
+                onClick={() => setMobileOpen(false)}
+              >
+                {jobSeekerNav.name}
+              </Link>
+              <Link
+                href="/request-workforce"
+                className="btn-primary text-sm px-5 py-2 w-full"
+                onClick={() => setMobileOpen(false)}
+              >
+                Request Workforce
+              </Link>
+            </div>
           </div>
         )}
       </nav>

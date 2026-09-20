@@ -1,7 +1,7 @@
 export const workforceCategories = [
   {
     id: "technical",
-    icon: "🎓",
+    icon: "graduation-cap",
     title: "Technical Workforce",
     tagline: "Degree and diploma-qualified professionals",
     description:
@@ -18,7 +18,7 @@ export const workforceCategories = [
   },
   {
     id: "non-technical",
-    icon: "🛠️",
+    icon: "wrench",
     title: "Non-Technical Workforce",
     tagline: "Trade-certified and experience-verified workers",
     description:

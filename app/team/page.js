@@ -14,6 +14,7 @@ export default function TeamPage() {
       <PageHero
         title="Our Team"
         subtitle="Experienced consultants managing your workforce order from requirement to deployment."
+        image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop"
       />
       <TeamGrid />
       <CTABanner />

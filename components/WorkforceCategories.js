@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Icon from "./Icon";
 import { workforceCategories } from "@/data/workforceCategories";
 
 export default function WorkforceCategories({ preview = false }) {
@@ -32,7 +33,16 @@ export default function WorkforceCategories({ preview = false }) {
                   : "border-border bg-white"
               }`}
             >
-              <span className="text-3xl">{cat.icon}</span>
+              <span
+                className={`flex h-12 w-12 items-center justify-center rounded-xl ${
+                  cat.id === "technical" ? "bg-white/10" : "bg-navy/5"
+                }`}
+              >
+                <Icon
+                  name={cat.icon}
+                  className={`h-6 w-6 ${cat.id === "technical" ? "text-gold-light" : "text-navy"}`}
+                />
+              </span>
               <h3 className={`mt-3 text-xl font-bold ${cat.id === "technical" ? "text-white" : "text-navy"}`}>
                 {cat.title}
               </h3>

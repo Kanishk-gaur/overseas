@@ -1,12 +1,15 @@
-const categories = [
-  "Construction Clients in Russia",
-  "Care Facilities in Japan",
-  "Manufacturers in Germany",
-  "Facilities Groups in the UAE",
-  "Contractors in Saudi Arabia",
-  "Hospitality Groups in Qatar",
-  "Logistics Operators in Poland",
-  "Care Providers in Israel",
+import Icon from "./Icon";
+import { countries } from "@/data/countries";
+
+const footprint = [
+  { label: "Construction Clients in Russia", icon: "hard-hat" },
+  { label: "Care Facilities in Japan", icon: "stethoscope" },
+  { label: "Manufacturers in Germany", icon: "factory" },
+  { label: "Facilities Groups in the UAE", icon: "wrench" },
+  { label: "Contractors in Saudi Arabia", icon: "hard-hat" },
+  { label: "Hospitality Groups in Qatar", icon: "bed" },
+  { label: "Logistics Operators in Poland", icon: "package" },
+  { label: "Care Providers in Israel", icon: "stethoscope" },
 ];
 
 export default function PartnerLogos() {
@@ -14,7 +17,7 @@ export default function PartnerLogos() {
     <section className="section-y bg-muted">
       <div className="container-x text-center">
         <h2 className="text-2xl font-bold text-navy md:text-3xl">
-          Businesses We&apos;ve Supplied Workforce To
+          Where We&apos;ve Supplied Workforce
         </h2>
         <p className="mx-auto mt-2 max-w-xl text-gray-600">
           We partner with licensed employers and facilities across the Gulf, Europe,
@@ -23,16 +26,19 @@ export default function PartnerLogos() {
         </p>
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {categories.map((c) => (
+          {footprint.map((c) => (
             <div
-              key={c}
-              className="flex h-24 items-center justify-center rounded-xl border border-dashed border-border bg-white px-3 text-center text-xs font-medium text-gray-500"
+              key={c.label}
+              className="flex h-24 flex-col items-center justify-center gap-2 rounded-xl border border-border bg-white px-3 text-center"
             >
-              {c}
+              <Icon name={c.icon} className="h-5 w-5 text-gold" />
+              <span className="text-xs font-medium text-gray-600">{c.label}</span>
             </div>
           ))}
         </div>
-        <p className="mt-4 text-xs text-gray-400">Client logos coming soon</p>
+        <p className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs text-gray-400">
+          Active across {countries.length} countries — client logos published with permission as agreements are finalized.
+        </p>
       </div>
     </section>
   );

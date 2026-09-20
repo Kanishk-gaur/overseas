@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import { categoryCoverImages } from "@/data/blog";
 
 export default function BlogCard({ post }) {
   return (
@@ -6,7 +8,15 @@ export default function BlogCard({ post }) {
       href={`/blog/${post.slug}`}
       className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-white transition-shadow hover:shadow-lg"
     >
-      <div className="flex h-36 items-center justify-center bg-navy/5 text-3xl">📰</div>
+      <div className="relative h-36 w-full overflow-hidden">
+        <Image
+          src={categoryCoverImages[post.category]}
+          alt={post.category}
+          fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-center gap-2">
           <span className="rounded-full bg-gold/15 px-2 py-0.5 text-[10px] font-medium text-gold">

@@ -1,4 +1,5 @@
 import { countries } from "@/data/countries";
+import { industries } from "@/data/industries";
 import { posts } from "@/data/blog";
 import { site } from "@/lib/siteConfig";
 
@@ -17,6 +18,7 @@ const staticRoutes = [
   "/glossary",
   "/contact",
   "/request-workforce",
+  "/find-a-job",
   "/privacy-policy",
   "/terms",
   "/disclaimer",
@@ -40,6 +42,13 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
+  const industryEntries = industries.map((i) => ({
+    url: `${base}/industries/${i.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   const blogEntries = posts.map((p) => ({
     url: `${base}/blog/${p.slug}`,
     lastModified: new Date(p.date),
@@ -47,5 +56,5 @@ export default function sitemap() {
     priority: 0.5,
   }));
 
-  return [...staticEntries, ...countryEntries, ...blogEntries];
+  return [...staticEntries, ...countryEntries, ...industryEntries, ...blogEntries];
 }

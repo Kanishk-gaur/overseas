@@ -137,3 +137,12 @@ export const posts = [
 ];
 
 export const getPost = (slug) => posts.find((p) => p.slug === slug);
+
+export const categoryCoverImages = {
+  "Visa Guide":
+    "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=format&fit=crop",
+  Compliance:
+    "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200&auto=format&fit=crop",
+  "Hiring Strategy":
+    "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop",
+};

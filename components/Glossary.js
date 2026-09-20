@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Icon from "./Icon";
 import { glossary } from "@/data/glossary";
 
 const countries = ["All", ...new Set(glossary.map((g) => g.country))];
@@ -41,7 +42,10 @@ export default function Glossary() {
         <dl className="mt-8 grid gap-4 sm:grid-cols-2">
           {list.map((g) => (
             <div key={g.term} className="rounded-xl border border-border bg-white p-5">
-              <div className="flex flex-wrap items-baseline gap-2">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-navy/5">
+                  <Icon name="book-text" className="h-4 w-4 text-navy" />
+                </span>
                 <dt className="font-semibold text-navy">{g.term}</dt>
                 <span className="rounded-full bg-gold/15 px-2 py-0.5 text-[10px] font-medium text-gold">
                   {g.country}

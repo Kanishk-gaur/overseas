@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Hero3D from "./Hero3D";
+import Icon from "./Icon";
 import { site } from "@/lib/siteConfig";
 import { countries } from "@/data/countries";
 
@@ -41,9 +42,15 @@ export default function Hero() {
           </div>
 
           <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/60">
-            <span>✅ Licensed Manpower Supply Agency</span>
-            <span>✅ Pre-Screened, Skill-Verified Workers</span>
-            <span>✅ End-to-End Visa Sponsorship</span>
+            <span className="flex items-center gap-1.5">
+              <Icon name="check-circle" className="h-4 w-4 text-gold-light" /> Licensed Manpower Supply Agency
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Icon name="check-circle" className="h-4 w-4 text-gold-light" /> Pre-Screened, Skill-Verified Workers
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Icon name="check-circle" className="h-4 w-4 text-gold-light" /> End-to-End Visa Sponsorship
+            </span>
           </div>
         </motion.div>
 

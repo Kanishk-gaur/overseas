@@ -14,6 +14,7 @@ export default function RequestWorkforcePage() {
       <PageHero
         title="Request Workforce"
         subtitle="Tell us your requirement and our account team will review it and get back with a sourcing timeline."
+        image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1600&auto=format&fit=crop"
       />
       <section className="section-y">
         <div className="container-x">

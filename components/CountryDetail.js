@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import PageHero from "./PageHero";
 import Breadcrumbs from "./Breadcrumbs";
+import Icon from "./Icon";
 import { workforce } from "@/data/workforce";
 import { caseStudies } from "@/data/caseStudies";
 import { posts } from "@/data/blog";
@@ -17,6 +19,18 @@ export default function CountryDetail({ country }) {
     <>
       <Breadcrumbs items={[{ label: "Countries", href: "/countries" }, { label: country.name }]} />
       <PageHero title={`${country.flag} ${country.heading}`} />
+      {country.image && (
+        <div className="relative h-80 w-full md:h-112">
+          <Image
+            src={country.image}
+            alt={country.name}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+      )}
       <section className="section-y">
         <div className="container-x grid gap-10 lg:grid-cols-3">
           <div className="lg:col-span-2">
@@ -35,7 +49,7 @@ export default function CountryDetail({ country }) {
 
             {openRoles.length > 0 && (
               <div className="mt-6 flex flex-wrap items-center gap-3 rounded-xl bg-muted p-4">
-                <span className="text-2xl">📋</span>
+                <Icon name="clipboard-list" className="h-6 w-6 text-gold" />
                 <p className="text-sm text-gray-600">
                   <span className="font-semibold text-navy">{availableCount} workers</span>{" "}
                   currently available across {openRoles.length} role
@@ -95,7 +109,7 @@ export default function CountryDetail({ country }) {
           <div className="space-y-4">
             <div className="rounded-2xl border border-border bg-white p-6">
               <h3 className="flex items-center gap-2 font-semibold text-navy">
-                <span>🎓</span> Technical Roles
+                <Icon name="graduation-cap" className="h-5 w-5 text-gold" /> Technical Roles
               </h3>
               <ul className="mt-3 space-y-2">
                 {country.technicalRoles.map((role) => (
@@ -107,7 +121,7 @@ export default function CountryDetail({ country }) {
             </div>
             <div className="rounded-2xl border border-border bg-white p-6">
               <h3 className="flex items-center gap-2 font-semibold text-navy">
-                <span>🛠️</span> Non-Technical Roles
+                <Icon name="wrench" className="h-5 w-5 text-gold" /> Non-Technical Roles
               </h3>
               <ul className="mt-3 space-y-2">
                 {country.nonTechnicalRoles.map((role) => (

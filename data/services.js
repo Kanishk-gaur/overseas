@@ -3,7 +3,7 @@ import { countries } from "./countries";
 export const services = [
   {
     id: "sourcing",
-    icon: "🧾",
+    icon: "file-text",
     title: "Workforce Sourcing & Screening",
     body: "We source, screen, and shortlist pre-vetted skilled and semi-skilled workers matched to your exact trade, experience, and headcount requirements.",
     included: [
@@ -14,7 +14,7 @@ export const services = [
   },
   {
     id: "compliance",
-    icon: "📄",
+    icon: "shield-check",
     title: "Visa Sponsorship & Compliance",
     body: "Complete handling of work permits, visa sponsorship documentation, and legal paperwork required to bring workers into your country of operation.",
     included: [
@@ -25,7 +25,7 @@ export const services = [
   },
   {
     id: "readiness",
-    icon: "🗣️",
+    icon: "languages",
     title: "Workforce Readiness Training",
     body: "Pre-deployment orientation, basic language training, and cultural readiness sessions so your workforce is productive from day one.",
     included: [
@@ -36,7 +36,7 @@ export const services = [
   },
   {
     id: "quality",
-    icon: "✅",
+    icon: "badge-check",
     title: "Quality & Background Verification",
     body: "Every candidate is background-checked, skill-tested, and verified before being shortlisted for your job order.",
     included: [
@@ -47,7 +47,7 @@ export const services = [
   },
   {
     id: "deployment",
-    icon: "✈️",
+    icon: "plane",
     title: "Bulk Deployment & Logistics",
     body: "Ticketing, travel coordination, and on-site handover — built to support both single-role hires and bulk workforce orders.",
     included: [
@@ -58,7 +58,7 @@ export const services = [
   },
   {
     id: "support",
-    icon: "🤝",
+    icon: "handshake",
     title: "Dedicated Account Management & Replacement Guarantee",
     body: "A single point of contact for your account, ongoing workforce support, and a replacement guarantee if a placed worker doesn't meet expectations.",
     included: [
@@ -79,10 +79,10 @@ export const whyChooseUs = [
 ];
 
 export const stats = [
-  { icon: "🧑‍🤝‍🧑", number: 1000, suffix: "+", label: "Workers Deployed" },
-  { icon: "🌍", number: countries.length, suffix: "", label: "Countries Across the Gulf, Europe & Asia" },
-  { icon: "🏢", number: 50, suffix: "+", label: "Client Companies Served" },
-  { icon: "🕐", number: 24, suffix: "/7", label: "Account Support" },
+  { icon: "users", number: 1000, suffix: "+", label: "Workers Deployed" },
+  { icon: "globe", number: countries.length, suffix: "", label: "Countries Across the Gulf, Europe & Asia" },
+  { icon: "building-2", number: 50, suffix: "+", label: "Client Companies Served" },
+  { icon: "clock", number: 24, suffix: "/7", label: "Account Support" },
 ];
 
 export const processSteps = [

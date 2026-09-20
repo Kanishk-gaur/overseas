@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Icon from "./Icon";
 import { faqs } from "@/data/services";
 
 export default function FAQ() {
@@ -28,7 +29,7 @@ export default function FAQ() {
                   <span
                     className={`shrink-0 text-gold transition-transform ${isOpen ? "rotate-45" : ""}`}
                   >
-                    +
+                    <Icon name="plus" className="h-4 w-4" />
                   </span>
                 </button>
                 {isOpen && (
