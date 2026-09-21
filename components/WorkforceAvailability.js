@@ -22,12 +22,10 @@ export default function WorkforceAvailability({ preview = false }) {
   return (
     <section className="section-y scroll-mt-20 bg-muted" id="availability">
       <div className="container-x">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <h2 className="text-2xl font-bold text-navy md:text-3xl">
-            Available Workforce Ready to Deploy
-          </h2>
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-navy md:text-3xl">Available Workforce</h2>
           {preview && (
-            <Link href="/workforce" className="text-sm font-semibold text-gold">
+            <Link href="/workforce" className="mt-2 inline-block text-sm font-semibold text-gold">
               View full availability →
             </Link>
           )}

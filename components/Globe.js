@@ -7,54 +7,19 @@ import { countries } from "@/data/countries";
 
 const RADIUS = 1.6;
 
-function latLongToVector3(lat, lon, radius = 1) {
-  const phi = ((90 - lat) * Math.PI) / 180;
-  const theta = ((lon + 180) * Math.PI) / 180;
-  return [
-    -radius * Math.sin(phi) * Math.cos(theta),
-    radius * Math.cos(phi),
-    radius * Math.sin(phi) * Math.sin(theta),
-  ];
-}
+// Lays pins out on the globe's front-facing side in an even sunflower-spiral
+// pattern (golden-angle spacing) so every pin is visible at once, clearly
+// separated, without depending on real-world lat/lon clustering.
+function frontFacingSpreadPositions(count, capAngleDeg = 78) {
+  const capAngle = (capAngleDeg * Math.PI) / 180;
+  const goldenAngle = Math.PI * (3 - Math.sqrt(5));
 
-function normalize([x, y, z]) {
-  const len = Math.hypot(x, y, z) || 1;
-  return [x / len, y / len, z / len];
-}
-
-// Nudges pins apart on the sphere surface so clustered countries (e.g. the
-// several close together in Europe) don't overlap, while isolated pins stay
-// near their real lat/lon.
-function relaxPinPositions(list, { iterations = 400, minAngleDeg = 24, strength = 0.05 } = {}) {
-  const positions = list.map((c) => normalize(latLongToVector3(c.lat, c.lon)));
-  const minAngle = (minAngleDeg * Math.PI) / 180;
-
-  for (let iter = 0; iter < iterations; iter++) {
-    const forces = positions.map(() => [0, 0, 0]);
-
-    for (let i = 0; i < positions.length; i++) {
-      for (let j = i + 1; j < positions.length; j++) {
-        const [ax, ay, az] = positions[i];
-        const [bx, by, bz] = positions[j];
-        const dot = Math.min(1, Math.max(-1, ax * bx + ay * by + az * bz));
-        const angle = Math.acos(dot);
-        if (angle > 1e-6 && angle < minAngle) {
-          const diff = [ax - bx, ay - by, az - bz];
-          const diffLen = Math.hypot(...diff) || 1e-6;
-          const push = ((minAngle - angle) / minAngle) * strength;
-          const dir = diff.map((v) => (v / diffLen) * push);
-          forces[i] = forces[i].map((v, k) => v + dir[k]);
-          forces[j] = forces[j].map((v, k) => v - dir[k]);
-        }
-      }
-    }
-
-    for (let i = 0; i < positions.length; i++) {
-      positions[i] = normalize(positions[i].map((v, k) => v + forces[i][k]));
-    }
-  }
-
-  return positions;
+  return Array.from({ length: count }, (_, i) => {
+    const zFrac = count === 1 ? 0 : i / (count - 1);
+    const theta = Math.acos(1 - zFrac * (1 - Math.cos(capAngle)));
+    const phi = i * goldenAngle;
+    return [Math.sin(theta) * Math.cos(phi), Math.sin(theta) * Math.sin(phi), Math.cos(theta)];
+  });
 }
 
 function Pin({ country, position: unitPosition }) {
@@ -85,7 +50,7 @@ function Pin({ country, position: unitPosition }) {
   );
 }
 
-const pinPositions = relaxPinPositions(countries);
+const pinPositions = frontFacingSpreadPositions(countries.length);
 
 function RotatingGlobe() {
   const groupRef = useRef();
