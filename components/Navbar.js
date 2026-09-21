@@ -6,11 +6,9 @@ import Icon from "./Icon";
 import {
   mainNav,
   companyMegaMenu,
-  servicesMegaMenu,
   jobSeekerNav,
   site,
 } from "@/lib/siteConfig";
-import { countries, regions } from "@/data/countries";
 import { industries } from "@/data/industries";
 
 export default function Navbar() {
@@ -82,55 +80,6 @@ export default function Navbar() {
                           <span className="text-sm font-semibold">{c.name}</span>
                           <span className="block text-xs text-gray-500">{c.desc}</span>
                         </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {item.mega === "services" && openMega === "services" && (
-                  <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[720px] max-w-[90vw]">
-                    <div className="grid grid-cols-4 gap-6 bg-white rounded-xl shadow-2xl p-6 text-navy">
-                      {servicesMegaMenu.map((group) => (
-                        <div key={group.heading}>
-                          <Link
-                            href={group.href}
-                            className="font-semibold text-sm text-navy hover:text-gold"
-                          >
-                            {group.heading}
-                          </Link>
-                          <ul className="mt-2 space-y-1.5">
-                            {group.items.map((sub) => (
-                              <li key={sub} className="text-sm text-gray-600">
-                                {sub}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {item.mega === "countries" && openMega === "countries" && (
-                  <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[420px] max-w-[90vw]">
-                    <div className="grid grid-cols-2 gap-x-4 gap-y-3 bg-white rounded-xl shadow-2xl p-4 text-navy">
-                      {regions.map((region) => (
-                        <div key={region}>
-                          <p className="px-3 text-[11px] font-semibold uppercase tracking-wide text-gray-400">
-                            {region}
-                          </p>
-                          {countries
-                            .filter((c) => c.region === region)
-                            .map((c) => (
-                              <Link
-                                key={c.slug}
-                                href={`/countries/${c.slug}`}
-                                className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm hover:bg-muted"
-                              >
-                                <span>{c.flag}</span> {c.name}
-                              </Link>
-                            ))}
-                        </div>
                       ))}
                     </div>
                   </div>

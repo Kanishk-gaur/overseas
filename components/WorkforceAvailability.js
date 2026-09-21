@@ -20,7 +20,7 @@ export default function WorkforceAvailability({ preview = false }) {
   const list = preview ? filtered.slice(0, 4) : filtered;
 
   return (
-    <section className="section-y bg-muted">
+    <section className="section-y scroll-mt-20 bg-muted" id="availability">
       <div className="container-x">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <h2 className="text-2xl font-bold text-navy md:text-3xl">
@@ -73,8 +73,7 @@ export default function WorkforceAvailability({ preview = false }) {
                 <th className="px-4 py-3 font-semibold">Type</th>
                 <th className="px-4 py-3 font-semibold">Country</th>
                 <th className="px-4 py-3 font-semibold">Category</th>
-                <th className="px-4 py-3 font-semibold">Experience</th>
-                <th className="px-4 py-3 font-semibold">Workers Available</th>
+                <th className="px-4 py-3 font-semibold">Description</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
@@ -98,13 +97,12 @@ export default function WorkforceAvailability({ preview = false }) {
                   </td>
                   <td className="px-4 py-3 text-gray-600">{item.country}</td>
                   <td className="px-4 py-3 text-gray-600">{item.category}</td>
-                  <td className="px-4 py-3 text-gray-600">{item.experience}</td>
-                  <td className="px-4 py-3 text-gray-600">{item.available}</td>
+                  <td className="px-4 py-3 text-gray-600">{item.description}</td>
                 </tr>
               ))}
               {list.length === 0 && (
                 <tr>
-                  <td colSpan={6} className="px-4 py-6 text-center text-gray-500">
+                  <td colSpan={5} className="px-4 py-6 text-center text-gray-500">
                     No roles match these filters yet — submit your requirement and
                     we&apos;ll source it.
                   </td>

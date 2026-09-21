@@ -2,7 +2,6 @@ import Hero from "@/components/Hero";
 import StatsBar from "@/components/StatsBar";
 import About from "@/components/About";
 import WorkforceCategories from "@/components/WorkforceCategories";
-import Services from "@/components/Services";
 import CountriesSection from "@/components/CountriesSection";
 import IndustriesGrid from "@/components/IndustriesGrid";
 import WorkforceAvailability from "@/components/WorkforceAvailability";
@@ -20,7 +19,6 @@ export default function Home() {
       <StatsBar />
       <About preview />
       <WorkforceCategories preview />
-      <Services preview />
       <CountriesSection preview />
       <IndustriesGrid preview />
       <WorkforceAvailability preview />

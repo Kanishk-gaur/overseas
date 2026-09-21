@@ -7,7 +7,7 @@ import { countries } from "@/data/countries";
 
 const RADIUS = 1.6;
 
-function latLongToVector3(lat, lon, radius) {
+function latLongToVector3(lat, lon, radius = 1) {
   const phi = ((90 - lat) * Math.PI) / 180;
   const theta = ((lon + 180) * Math.PI) / 180;
   return [
@@ -17,9 +17,50 @@ function latLongToVector3(lat, lon, radius) {
   ];
 }
 
-function Pin({ country }) {
+function normalize([x, y, z]) {
+  const len = Math.hypot(x, y, z) || 1;
+  return [x / len, y / len, z / len];
+}
+
+// Nudges pins apart on the sphere surface so clustered countries (e.g. the
+// several close together in Europe) don't overlap, while isolated pins stay
+// near their real lat/lon.
+function relaxPinPositions(list, { iterations = 400, minAngleDeg = 24, strength = 0.05 } = {}) {
+  const positions = list.map((c) => normalize(latLongToVector3(c.lat, c.lon)));
+  const minAngle = (minAngleDeg * Math.PI) / 180;
+
+  for (let iter = 0; iter < iterations; iter++) {
+    const forces = positions.map(() => [0, 0, 0]);
+
+    for (let i = 0; i < positions.length; i++) {
+      for (let j = i + 1; j < positions.length; j++) {
+        const [ax, ay, az] = positions[i];
+        const [bx, by, bz] = positions[j];
+        const dot = Math.min(1, Math.max(-1, ax * bx + ay * by + az * bz));
+        const angle = Math.acos(dot);
+        if (angle > 1e-6 && angle < minAngle) {
+          const diff = [ax - bx, ay - by, az - bz];
+          const diffLen = Math.hypot(...diff) || 1e-6;
+          const push = ((minAngle - angle) / minAngle) * strength;
+          const dir = diff.map((v) => (v / diffLen) * push);
+          forces[i] = forces[i].map((v, k) => v + dir[k]);
+          forces[j] = forces[j].map((v, k) => v - dir[k]);
+        }
+      }
+    }
+
+    for (let i = 0; i < positions.length; i++) {
+      positions[i] = normalize(positions[i].map((v, k) => v + forces[i][k]));
+    }
+  }
+
+  return positions;
+}
+
+function Pin({ country, position: unitPosition }) {
   const [hovered, setHovered] = useState(false);
-  const position = latLongToVector3(country.lat, country.lon, RADIUS + 0.02);
+  const radius = RADIUS + 0.02;
+  const position = unitPosition.map((v) => v * radius);
 
   return (
     <group position={position}>
@@ -29,7 +70,7 @@ function Pin({ country }) {
       </mesh>
       <Html distanceFactor={6} occlude zIndexRange={[100, 0]}>
         <a
-          href={`/countries/${country.slug}`}
+          href="/#countries"
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           className={`pointer-events-auto flex items-center whitespace-nowrap rounded-full bg-white/95 shadow-lg transition-all ${
@@ -44,6 +85,8 @@ function Pin({ country }) {
   );
 }
 
+const pinPositions = relaxPinPositions(countries);
+
 function RotatingGlobe() {
   const groupRef = useRef();
 
@@ -55,8 +98,8 @@ function RotatingGlobe() {
       <Sphere args={[RADIUS - 0.02, 32, 32]}>
         <meshBasicMaterial color="#0b1220" transparent opacity={0.85} />
       </Sphere>
-      {countries.map((c) => (
-        <Pin key={c.slug} country={c} />
+      {countries.map((c, i) => (
+        <Pin key={c.slug} country={c} position={pinPositions[i]} />
       ))}
     </group>
   );
@@ -74,8 +117,7 @@ export default function Globe() {
       <OrbitControls
         enableZoom={false}
         enablePan={false}
-        autoRotate
-        autoRotateSpeed={0.8}
+        autoRotate={false}
         minPolarAngle={Math.PI / 3}
         maxPolarAngle={Math.PI / 1.6}
       />

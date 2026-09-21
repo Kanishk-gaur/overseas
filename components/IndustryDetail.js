@@ -15,7 +15,7 @@ export default function IndustryDetail({ industry }) {
 
   return (
     <>
-      <Breadcrumbs items={[{ label: "Industries", href: "/industries" }, { label: industry.name }]} />
+      <Breadcrumbs items={[{ label: "Industries", href: "/workforce" }, { label: industry.name }]} />
       <PageHero title={`${industry.icon} ${industry.heading}`} />
       {industry.image && (
         <div className="relative h-80 w-full md:h-112">
@@ -78,8 +78,7 @@ export default function IndustryDetail({ industry }) {
                     <tr className="bg-navy text-white text-left">
                       <th className="px-4 py-3 font-semibold">Trade / Role</th>
                       <th className="px-4 py-3 font-semibold">Country</th>
-                      <th className="px-4 py-3 font-semibold">Experience</th>
-                      <th className="px-4 py-3 font-semibold">Workers Available</th>
+                      <th className="px-4 py-3 font-semibold">Description</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-border">
@@ -87,8 +86,7 @@ export default function IndustryDetail({ industry }) {
                       <tr key={`${item.title}-${item.country}`} className="hover:bg-muted">
                         <td className="px-4 py-3 font-medium text-navy">{item.title}</td>
                         <td className="px-4 py-3 text-gray-600">{item.country}</td>
-                        <td className="px-4 py-3 text-gray-600">{item.experience}</td>
-                        <td className="px-4 py-3 text-gray-600">{item.available}</td>
+                        <td className="px-4 py-3 text-gray-600">{item.description}</td>
                       </tr>
                     ))}
                   </tbody>

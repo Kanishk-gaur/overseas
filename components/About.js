@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Icon from "./Icon";
 import { site } from "@/lib/siteConfig";
-import { whyChooseUs } from "@/data/services";
+import { services, whyChooseUs } from "@/data/services";
 
 const values = [
   {
@@ -150,6 +150,35 @@ export default function About({ preview = false }) {
                 construction clients, and precision hiring for technical and IT
                 roles — backed by an in-house documentation and compliance team.
               </p>
+            </div>
+          </div>
+
+          <div className="container-x mt-16">
+            <h3 className="text-xl font-bold text-navy">What We Offer</h3>
+            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {services.map((s) => (
+                <div
+                  key={s.id}
+                  id={s.id}
+                  className="scroll-mt-24 rounded-2xl border border-border bg-white p-6"
+                >
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy/5">
+                    <Icon name={s.icon} className="h-6 w-6 text-navy" />
+                  </span>
+                  <h4 className="mt-4 font-semibold text-navy">{s.title}</h4>
+                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">{s.body}</p>
+                  {s.included && (
+                    <ul className="mt-4 space-y-1.5 border-t border-border pt-4">
+                      {s.included.map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-xs text-gray-500">
+                          <Icon name="check-circle" className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
 

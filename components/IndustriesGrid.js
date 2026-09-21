@@ -57,7 +57,7 @@ export default function IndustriesGrid({ preview = false }) {
 
         {preview && (
           <div className="mt-8">
-            <Link href="/industries" className="font-semibold text-gold">
+            <Link href="/workforce" className="font-semibold text-gold">
               View All Industries →
             </Link>
           </div>

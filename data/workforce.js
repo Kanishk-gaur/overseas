@@ -7,6 +7,7 @@ export const workforce = [
     type: "Non-Technical",
     experience: "2+ years",
     available: 15,
+    description: "Certified welders experienced in structural and pipe welding for Russian construction sites.",
   },
   {
     title: "Electrician",
@@ -16,6 +17,7 @@ export const workforce = [
     type: "Non-Technical",
     experience: "2+ years",
     available: 12,
+    description: "Licensed electricians for industrial and residential wiring on active construction projects in Russia.",
   },
   {
     title: "Mechanical Engineer",
@@ -25,6 +27,7 @@ export const workforce = [
     type: "Technical",
     experience: "3+ years",
     available: 7,
+    description: "Mechanical engineers skilled in equipment design and maintenance for manufacturing plants in Russia.",
   },
   {
     title: "Machine Operator",
@@ -34,6 +37,7 @@ export const workforce = [
     type: "Non-Technical",
     experience: "1+ years",
     available: 10,
+    description: "Trained machine operators for production line work in Russian manufacturing facilities.",
   },
   {
     title: "Caregiver",
@@ -43,6 +47,7 @@ export const workforce = [
     type: "Non-Technical",
     experience: "1+ years",
     available: 20,
+    description: "SSW-qualified caregivers experienced in elderly and patient support for Japanese care facilities.",
   },
   {
     title: "Hospitality Staff",
@@ -52,6 +57,7 @@ export const workforce = [
     type: "Non-Technical",
     experience: "1+ years",
     available: 8,
+    description: "Hospitality staff trained in front-of-house and guest service for hotels and restaurants in Japan.",
   },
   {
     title: "Factory Worker",
@@ -61,6 +67,7 @@ export const workforce = [
     type: "Non-Technical",
     experience: "1+ years",
     available: 16,
+    description: "SSW-eligible factory workers for assembly and production roles across Japan's manufacturing sector.",
   },
   {
     title: "IT Support Engineer",
@@ -70,6 +77,7 @@ export const workforce = [
     type: "Technical",
     experience: "2+ years",
     available: 5,
+    description: "IT support engineers with Specialist Visa eligibility for technical helpdesk and infrastructure roles in Japan.",
   },
   {
     title: "CNC Machine Operator",
@@ -79,6 +87,7 @@ export const workforce = [
     type: "Technical",
     experience: "3+ years",
     available: 10,
+    description: "CNC operators experienced with precision machining for German manufacturing production lines.",
   },
   {
     title: "Nurse",
@@ -88,6 +97,7 @@ export const workforce = [
     type: "Non-Technical",
     experience: "2+ years",
     available: 6,
+    description: "Qualified nurses for hospital and elderly care roles under Germany's skilled worker visa route.",
   },
   {
     title: "Software Developer",
@@ -97,6 +107,7 @@ export const workforce = [
     type: "Technical",
     experience: "2+ years",
     available: 9,
+    description: "Software developers experienced in web and enterprise application development for German employers.",
   },
   {
     title: "Electrician",
@@ -106,6 +117,7 @@ export const workforce = [
     type: "Non-Technical",
     experience: "2+ years",
     available: 7,
+    description: "Trade-certified electricians for commercial and residential wiring projects in Germany.",
   },
   {
     title: "Construction Worker",
@@ -115,6 +127,7 @@ export const workforce = [
     type: "Non-Technical",
     experience: "1+ years",
     available: 25,
+    description: "General construction workers ready for deployment on UAE infrastructure and building projects.",
   },
   {
     title: "MEP Technician",
@@ -124,6 +137,7 @@ export const workforce = [
     type: "Technical",
     experience: "2+ years",
     available: 11,
+    description: "MEP technicians skilled in mechanical, electrical, and plumbing maintenance for UAE facilities.",
   },
   {
     title: "Security Guard",
@@ -133,6 +147,7 @@ export const workforce = [
     type: "Non-Technical",
     experience: "1+ years",
     available: 18,
+    description: "Licensed security guards for commercial and residential facility deployment across the UAE.",
   },
   {
     title: "IT Support Engineer",
@@ -142,6 +157,7 @@ export const workforce = [
     type: "Technical",
     experience: "2+ years",
     available: 6,
+    description: "IT support engineers for helpdesk and network administration roles with UAE-based employers.",
   },
   {
     title: "Site Engineer",
@@ -151,6 +167,7 @@ export const workforce = [
     type: "Technical",
     experience: "3+ years",
     available: 8,
+    description: "Site engineers experienced in project supervision for large-scale Saudi construction developments.",
   },
   {
     title: "Welder",
@@ -160,6 +177,7 @@ export const workforce = [
     type: "Non-Technical",
     experience: "2+ years",
     available: 20,
+    description: "Certified welders for structural and pipeline work on Saudi Arabian construction sites.",
   },
   {
     title: "Driver",
@@ -169,6 +187,7 @@ export const workforce = [
     type: "Non-Technical",
     experience: "1+ years",
     available: 9,
+    description: "Licensed drivers for staff transport and logistics support across Saudi Arabia.",
   },
   {
     title: "Construction Worker",
@@ -178,6 +197,7 @@ export const workforce = [
     type: "Non-Technical",
     experience: "1+ years",
     available: 22,
+    description: "General construction laborers ready for Qatar's ongoing infrastructure and building projects.",
   },
   {
     title: "Hospitality Staff",
@@ -187,6 +207,7 @@ export const workforce = [
     type: "Non-Technical",
     experience: "1+ years",
     available: 10,
+    description: "Hospitality staff for hotel and restaurant service roles across Qatar.",
   },
   {
     title: "MEP Technician",
@@ -196,6 +217,7 @@ export const workforce = [
     type: "Technical",
     experience: "2+ years",
     available: 6,
+    description: "MEP technicians for building maintenance and facilities upkeep in Qatar.",
   },
   {
     title: "Warehouse Worker",
@@ -205,6 +227,7 @@ export const workforce = [
     type: "Non-Technical",
     experience: "1+ years",
     available: 14,
+    description: "Warehouse workers experienced in picking, packing, and inventory handling for Polish logistics hubs.",
   },
   {
     title: "Factory Worker",
@@ -214,6 +237,7 @@ export const workforce = [
     type: "Non-Technical",
     experience: "1+ years",
     available: 12,
+    description: "Factory workers for assembly and production roles across Poland's manufacturing sector.",
   },
   {
     title: "CNC Technician",
@@ -223,6 +247,7 @@ export const workforce = [
     type: "Technical",
     experience: "2+ years",
     available: 5,
+    description: "CNC technicians skilled in precision machining for Polish manufacturing operations.",
   },
   {
     title: "Caregiver",
@@ -232,6 +257,7 @@ export const workforce = [
     type: "Non-Technical",
     experience: "1+ years",
     available: 13,
+    description: "Caregivers experienced in elderly and home-based patient support under Israel's B/1 visa route.",
   },
   {
     title: "Construction Worker",
@@ -241,6 +267,7 @@ export const workforce = [
     type: "Non-Technical",
     experience: "1+ years",
     available: 11,
+    description: "General construction workers for building and infrastructure projects across Israel.",
   },
   {
     title: "Agriculture Worker",
@@ -250,5 +277,6 @@ export const workforce = [
     type: "Non-Technical",
     experience: "1+ years",
     available: 9,
+    description: "Agriculture workers experienced in farm labor and harvest support for Israeli agricultural operations.",
   },
 ];
