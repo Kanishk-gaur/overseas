@@ -1,10 +1,12 @@
 import Hero from "@/components/Hero";
+import HeroTeamStrip from "@/components/HeroTeamStrip";
 import StatsBar from "@/components/StatsBar";
 import About from "@/components/About";
 import WorkforceCategories from "@/components/WorkforceCategories";
 import CountriesSection from "@/components/CountriesSection";
 import IndustriesGrid from "@/components/IndustriesGrid";
 import WorkforceAvailability from "@/components/WorkforceAvailability";
+import JoinWorkforceCTA from "@/components/JoinWorkforceCTA";
 import ProcessSteps from "@/components/ProcessSteps";
 import Testimonials from "@/components/Testimonials";
 import PartnerLogos from "@/components/PartnerLogos";
@@ -16,12 +18,14 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <HeroTeamStrip />
       <StatsBar />
       <About preview />
       <WorkforceCategories preview />
       <CountriesSection preview />
       <IndustriesGrid preview />
       <WorkforceAvailability preview />
+      <JoinWorkforceCTA />
       <ProcessSteps />
       <Testimonials />
       <PartnerLogos />
