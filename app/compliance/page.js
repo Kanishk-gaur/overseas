@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import { pageHeroImages } from "@/data/siteImages";
 import CTABanner from "@/components/CTABanner";
 import Icon from "@/components/Icon";
 import { site } from "@/lib/siteConfig";
@@ -49,7 +50,7 @@ export default function CompliancePage() {
       <PageHero
         title="Compliance & Certifications"
         subtitle="The standards we hold every workforce order to, from licensing through post-deployment support."
-        image="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1600&auto=format&fit=crop"
+        image={pageHeroImages.compliance}
       />
 
       <section className="section-y">

@@ -13,7 +13,7 @@ export default function PageHero({ title, subtitle, image }) {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-navy/90 to-navy-dark/90" />
+          <div className="absolute inset-0 bg-gradient-to-br from-navy/85 via-navy/65 to-navy-dark/85" />
         </>
       )}
       <div className="container-x relative py-14 text-center md:py-20">

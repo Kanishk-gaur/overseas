@@ -1,4 +1,5 @@
 import PageHero from "@/components/PageHero";
+import { pageHeroImages } from "@/data/siteImages";
 import BlogList from "@/components/BlogList";
 import { site } from "@/lib/siteConfig";
 import { formatCountryList } from "@/data/countries";
@@ -14,7 +15,7 @@ export default function BlogPage() {
       <PageHero
         title="Latest Updates & Guides"
         subtitle="Practical guides for employers sourcing overseas workforce."
-        image="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1600&auto=format&fit=crop"
+        image={pageHeroImages.blog}
       />
       <BlogList />
     </>

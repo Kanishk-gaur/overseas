@@ -8,6 +8,7 @@ import IndustriesGrid from "@/components/IndustriesGrid";
 import WorkforceAvailability from "@/components/WorkforceAvailability";
 import JoinWorkforceCTA from "@/components/JoinWorkforceCTA";
 import ProcessSteps from "@/components/ProcessSteps";
+import WorkforceGallery from "@/components/WorkforceGallery";
 import Testimonials from "@/components/Testimonials";
 import PartnerLogos from "@/components/PartnerLogos";
 import FAQ from "@/components/FAQ";
@@ -27,6 +28,7 @@ export default function Home() {
       <WorkforceAvailability preview />
       <JoinWorkforceCTA />
       <ProcessSteps />
+      <WorkforceGallery />
       <Testimonials />
       <PartnerLogos />
       <FAQ />

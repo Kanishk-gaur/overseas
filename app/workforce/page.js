@@ -1,4 +1,5 @@
 import PageHero from "@/components/PageHero";
+import { pageHeroImages } from "@/data/siteImages";
 import IndustriesGrid from "@/components/IndustriesGrid";
 import WorkforceCategories from "@/components/WorkforceCategories";
 import WorkforceAvailability from "@/components/WorkforceAvailability";
@@ -17,7 +18,7 @@ export default function WorkforcePage() {
       <PageHero
         title="Workforce & Industries"
         subtitle="Browse workforce by industry and category, or the full availability table — and submit your requirement even if your trade isn't listed."
-        image="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop"
+        image={pageHeroImages.workforce}
       />
       <IndustriesGrid />
       <WorkforceCategories />

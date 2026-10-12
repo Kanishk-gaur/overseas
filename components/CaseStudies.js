@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { caseStudies } from "@/data/caseStudies";
+import { caseStudyImages } from "@/data/siteImages";
 
 const typeFilters = ["All", "Technical", "Non-Technical"];
 
@@ -65,50 +67,62 @@ export default function CaseStudies() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="rounded-2xl border border-border bg-white p-6 md:p-7"
+              className="group overflow-hidden rounded-2xl border border-border bg-white"
             >
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-full bg-navy px-2.5 py-1 text-xs font-semibold text-white">
-                  {cs.country}
-                </span>
-                <span
-                  className={`rounded-full px-2.5 py-1 text-xs font-semibold ${
-                    cs.workforceType === "Technical"
-                      ? "bg-navy/10 text-navy"
-                      : "bg-gold/15 text-gold"
-                  }`}
-                >
-                  {cs.workforceType}
-                </span>
-                <span className="text-xs text-gray-400">{cs.industry}</span>
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <Image
+                  src={caseStudyImages[cs.slug]}
+                  alt={`${cs.industry} workforce in ${cs.country}`}
+                  fill
+                  placeholder="blur"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
-
-              <h3 className="mt-3 font-semibold text-navy">{cs.client}</h3>
-
-              <div className="mt-4 grid grid-cols-2 gap-3 rounded-xl bg-muted p-3 text-center">
-                <div>
-                  <p className="text-lg font-bold text-navy">{cs.headcount}</p>
-                  <p className="text-xs text-gray-500">Workers Deployed</p>
+              <div className="p-6 md:p-7">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="rounded-full bg-navy px-2.5 py-1 text-xs font-semibold text-white">
+                    {cs.country}
+                  </span>
+                  <span
+                    className={`rounded-full px-2.5 py-1 text-xs font-semibold ${
+                      cs.workforceType === "Technical"
+                        ? "bg-navy/10 text-navy"
+                        : "bg-gold/15 text-gold"
+                    }`}
+                  >
+                    {cs.workforceType}
+                  </span>
+                  <span className="text-xs text-gray-400">{cs.industry}</span>
                 </div>
-                <div>
-                  <p className="text-lg font-bold text-navy">{cs.leadTime}</p>
-                  <p className="text-xs text-gray-500">Lead Time</p>
-                </div>
-              </div>
 
-              <div className="mt-4 space-y-3 text-sm">
-                <p>
-                  <span className="font-semibold text-navy">Challenge: </span>
-                  <span className="text-gray-600">{cs.challenge}</span>
-                </p>
-                <p>
-                  <span className="font-semibold text-navy">Solution: </span>
-                  <span className="text-gray-600">{cs.solution}</span>
-                </p>
-                <p>
-                  <span className="font-semibold text-navy">Result: </span>
-                  <span className="text-gray-600">{cs.result}</span>
-                </p>
+                <h3 className="mt-3 font-semibold text-navy">{cs.client}</h3>
+
+                <div className="mt-4 grid grid-cols-2 gap-3 rounded-xl bg-muted p-3 text-center">
+                  <div>
+                    <p className="text-lg font-bold text-navy">{cs.headcount}</p>
+                    <p className="text-xs text-gray-500">Workers Deployed</p>
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold text-navy">{cs.leadTime}</p>
+                    <p className="text-xs text-gray-500">Lead Time</p>
+                  </div>
+                </div>
+
+                <div className="mt-4 space-y-3 text-sm">
+                  <p>
+                    <span className="font-semibold text-navy">Challenge: </span>
+                    <span className="text-gray-600">{cs.challenge}</span>
+                  </p>
+                  <p>
+                    <span className="font-semibold text-navy">Solution: </span>
+                    <span className="text-gray-600">{cs.solution}</span>
+                  </p>
+                  <p>
+                    <span className="font-semibold text-navy">Result: </span>
+                    <span className="text-gray-600">{cs.result}</span>
+                  </p>
+                </div>
               </div>
             </motion.div>
           ))}

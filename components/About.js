@@ -1,7 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import Icon from "./Icon";
 import { site } from "@/lib/siteConfig";
 import { services, whyChooseUs } from "@/data/services";
+import { countries } from "@/data/countries";
+import { aboutImages } from "@/data/siteImages";
 
 const values = [
   {
@@ -63,7 +66,48 @@ export default function About({ preview = false }) {
         </div>
       )}
 
-      <div className="container-x grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div className="container-x grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div className="relative mx-auto w-full max-w-md pb-10 pr-8 sm:pb-12 sm:pr-12 lg:max-w-lg">
+          <div className="relative aspect-[3/4] overflow-hidden rounded-3xl shadow-xl">
+            <Image
+              src={aboutImages.main}
+              alt="Recruitment officer interviewing a candidate"
+              fill
+              placeholder="blur"
+              sizes="(min-width: 1024px) 40vw, 90vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="absolute right-0 top-8 w-2/5 overflow-hidden rounded-2xl border-4 border-white shadow-xl">
+            <div className="relative aspect-[4/3]">
+              <Image
+                src={aboutImages.documents}
+                alt="Passport and visa documents being checked"
+                fill
+                placeholder="blur"
+                sizes="(min-width: 1024px) 18vw, 36vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+          <div className="absolute bottom-0 right-0 w-1/2 overflow-hidden rounded-2xl border-4 border-white shadow-xl">
+            <div className="relative aspect-square">
+              <Image
+                src={aboutImages.team}
+                alt="Workers from different trades standing together"
+                fill
+                placeholder="blur"
+                sizes="(min-width: 1024px) 22vw, 45vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+          <div className="absolute bottom-16 left-4 rounded-2xl bg-gold px-5 py-3 text-navy-dark shadow-lg sm:left-6">
+            <p className="text-2xl font-bold leading-none">{countries.length}</p>
+            <p className="mt-1 text-xs font-semibold">Countries Served</p>
+          </div>
+        </div>
+
         <div>
           <h2 className="text-2xl font-bold text-navy md:text-3xl">Who We Are</h2>
           <p className="mt-4 text-gray-600 leading-relaxed">
@@ -73,6 +117,11 @@ export default function About({ preview = false }) {
             semi-skilled workers and manage sourcing, compliance, and visa
             sponsorship on behalf of our client companies.
           </p>
+          {preview && (
+            <Link href="/about" className="mt-6 inline-flex font-semibold text-gold">
+              More About Us →
+            </Link>
+          )}
           {!preview && (
             <>
               <p className="mt-4 text-gray-600 leading-relaxed">
@@ -102,10 +151,12 @@ export default function About({ preview = false }) {
             </>
           )}
         </div>
+      </div>
 
+      <div className="container-x mt-12">
         <div className="rounded-2xl bg-navy p-8 text-white">
           <h3 className="font-semibold text-lg">Why Partner With Us</h3>
-          <ul className="mt-4 space-y-3">
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {whyChooseUs.map((item) => (
               <li key={item} className="flex items-start gap-2.5 text-sm text-white/80">
                 <Icon name="check-circle" className="mt-0.5 h-4 w-4 shrink-0 text-gold-light" />

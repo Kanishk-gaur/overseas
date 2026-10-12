@@ -1,15 +1,17 @@
+import Image from "next/image";
 import Icon from "./Icon";
 import { countries } from "@/data/countries";
+import { caseStudyImages } from "@/data/siteImages";
 
 const footprint = [
-  { label: "Construction Clients in Russia", icon: "hard-hat" },
-  { label: "Care Facilities in Japan", icon: "stethoscope" },
-  { label: "Manufacturers in Germany", icon: "factory" },
-  { label: "Facilities Groups in the UAE", icon: "wrench" },
-  { label: "Contractors in Saudi Arabia", icon: "hard-hat" },
-  { label: "Hospitality Groups in Qatar", icon: "bed" },
-  { label: "Logistics Operators in Poland", icon: "package" },
-  { label: "Care Providers in Israel", icon: "stethoscope" },
+  { label: "Construction Clients in Russia", icon: "hard-hat", image: caseStudyImages["construction-firm-russia-bulk-order"] },
+  { label: "Care Facilities in Japan", icon: "stethoscope", image: caseStudyImages["healthcare-group-japan-caregivers"] },
+  { label: "Manufacturers in Germany", icon: "factory", image: caseStudyImages["engineering-firm-germany-technicians"] },
+  { label: "Facilities Groups in the UAE", icon: "wrench", image: caseStudyImages["facilities-management-uae-bulk-order"] },
+  { label: "Contractors in Saudi Arabia", icon: "hard-hat", image: caseStudyImages["construction-saudi-arabia-engineers"] },
+  { label: "Hospitality Groups in Qatar", icon: "bed", image: caseStudyImages["hospitality-qatar-staff"] },
+  { label: "Logistics Operators in Poland", icon: "package", image: caseStudyImages["logistics-poland-warehouse-workers"] },
+  { label: "Care Providers in Israel", icon: "stethoscope", image: caseStudyImages["care-services-israel-caregivers"] },
 ];
 
 export default function PartnerLogos() {
@@ -29,10 +31,21 @@ export default function PartnerLogos() {
           {footprint.map((c) => (
             <div
               key={c.label}
-              className="flex h-24 flex-col items-center justify-center gap-2 rounded-xl border border-border bg-white px-3 text-center"
+              className="group relative h-36 overflow-hidden rounded-xl sm:h-44"
             >
-              <Icon name={c.icon} className="h-5 w-5 text-gold" />
-              <span className="text-xs font-medium text-gray-600">{c.label}</span>
+              <Image
+                src={c.image}
+                alt=""
+                fill
+                placeholder="blur"
+                sizes="(min-width: 640px) 25vw, 50vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/90 via-navy-dark/20 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-1.5 p-3 text-center">
+                <Icon name={c.icon} className="h-5 w-5 text-gold-light" />
+                <span className="text-xs font-medium text-white">{c.label}</span>
+              </div>
             </div>
           ))}
         </div>

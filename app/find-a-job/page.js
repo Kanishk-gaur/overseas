@@ -1,4 +1,5 @@
 import PageHero from "@/components/PageHero";
+import { pageHeroImages } from "@/data/siteImages";
 import FindJobForm from "@/components/FindJobForm";
 import Icon from "@/components/Icon";
 import { jobCategories } from "@/data/jobCategories";
@@ -44,7 +45,7 @@ export default function FindJobPage() {
       <PageHero
         title="Find a Job Overseas"
         subtitle="Apply once and get matched with verified employers across the Gulf, Europe, and Asia. Tell us your skills, upload your resume, and our team will take it from there."
-        image="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop"
+        image={pageHeroImages.findAJob}
       />
 
       <section className="section-y">

@@ -1,4 +1,5 @@
 import PageHero from "@/components/PageHero";
+import { pageHeroImages } from "@/data/siteImages";
 import CountriesSection from "@/components/CountriesSection";
 import CTABanner from "@/components/CTABanner";
 import { site } from "@/lib/siteConfig";
@@ -15,7 +16,7 @@ export default function CountriesPage() {
       <PageHero
         title="Countries We Supply To"
         subtitle={`Source workforce across ${countries.length} of the world's most in-demand labor markets.`}
-        image="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1600&auto=format&fit=crop"
+        image={pageHeroImages.countries}
       />
       <CountriesSection />
       <CTABanner />

@@ -1,4 +1,5 @@
 import PageHero from "@/components/PageHero";
+import { pageHeroImages } from "@/data/siteImages";
 import RequirementForm from "@/components/RequirementForm";
 import { site } from "@/lib/siteConfig";
 import { formatCountryList } from "@/data/countries";
@@ -14,7 +15,7 @@ export default function RequestWorkforcePage() {
       <PageHero
         title="Request Workforce"
         subtitle="Tell us your requirement and our account team will review it and get back with a sourcing timeline."
-        image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1600&auto=format&fit=crop"
+        image={pageHeroImages.requestWorkforce}
       />
       <section className="section-y">
         <div className="container-x">

@@ -1,4 +1,5 @@
 import PageHero from "@/components/PageHero";
+import { pageHeroImages } from "@/data/siteImages";
 import ContactForm from "@/components/ContactForm";
 import Icon from "@/components/Icon";
 import { site } from "@/lib/siteConfig";
@@ -14,7 +15,7 @@ export default function ContactPage() {
       <PageHero
         title="Get In Touch"
         subtitle="Have a workforce requirement? Our team is here to guide you through the process, wherever you're hiring."
-        image="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop"
+        image={pageHeroImages.contact}
       />
       <section className="section-y">
         <div className="container-x grid gap-10 lg:grid-cols-2">
