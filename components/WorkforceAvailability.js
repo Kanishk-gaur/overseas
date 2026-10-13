@@ -4,18 +4,14 @@ import { useState } from "react";
 import Link from "next/link";
 import Icon from "./Icon";
 import { workforce } from "@/data/workforce";
-import { countries } from "@/data/countries";
 
 const typeFilters = ["All", "Technical", "Non-Technical"];
 
 export default function WorkforceAvailability({ preview = false }) {
   const [typeFilter, setTypeFilter] = useState("All");
-  const [countryFilter, setCountryFilter] = useState("All");
 
   const filtered = workforce.filter(
-    (item) =>
-      (typeFilter === "All" || item.type === typeFilter) &&
-      (countryFilter === "All" || item.country === countryFilter)
+    (item) => typeFilter === "All" || item.type === typeFilter
   );
   const list = preview ? filtered.slice(0, 4) : filtered;
 
@@ -48,35 +44,22 @@ export default function WorkforceAvailability({ preview = false }) {
                 </button>
               ))}
             </div>
-            <select
-              value={countryFilter}
-              onChange={(e) => setCountryFilter(e.target.value)}
-              className="rounded-full border border-border bg-white px-4 py-1.5 text-sm font-medium text-gray-600 outline-none focus:border-gold"
-            >
-              <option value="All">All Countries</option>
-              {countries.map((c) => (
-                <option key={c.slug} value={c.name}>
-                  {c.flag} {c.name}
-                </option>
-              ))}
-            </select>
           </div>
         )}
 
         <div className="mt-8 overflow-x-auto rounded-2xl border border-border bg-white">
-          <table className="w-full min-w-[680px] text-sm">
+          <table className="w-full min-w-[560px] text-sm">
             <thead>
               <tr className="bg-navy text-white text-left">
                 <th className="px-4 py-3 font-semibold">Trade / Role</th>
                 <th className="px-4 py-3 font-semibold">Type</th>
-                <th className="px-4 py-3 font-semibold">Country</th>
                 <th className="px-4 py-3 font-semibold">Category</th>
                 <th className="px-4 py-3 font-semibold">Description</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
               {list.map((item) => (
-                <tr key={`${item.title}-${item.country}`} className="hover:bg-muted">
+                <tr key={item.title} className="hover:bg-muted">
                   <td className="px-4 py-3 font-medium text-navy">{item.title}</td>
                   <td className="px-4 py-3">
                     <span
@@ -93,14 +76,13 @@ export default function WorkforceAvailability({ preview = false }) {
                       {item.type}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-gray-600">{item.country}</td>
                   <td className="px-4 py-3 text-gray-600">{item.category}</td>
                   <td className="px-4 py-3 text-gray-600">{item.description}</td>
                 </tr>
               ))}
               {list.length === 0 && (
                 <tr>
-                  <td colSpan={5} className="px-4 py-6 text-center text-gray-500">
+                  <td colSpan={4} className="px-4 py-6 text-center text-gray-500">
                     No roles match these filters yet — submit your requirement and
                     we&apos;ll source it.
                   </td>

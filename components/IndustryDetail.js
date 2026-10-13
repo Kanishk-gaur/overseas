@@ -4,14 +4,9 @@ import PageHero from "./PageHero";
 import Breadcrumbs from "./Breadcrumbs";
 import Icon from "./Icon";
 import { workforce } from "@/data/workforce";
-import { countries } from "@/data/countries";
 
 export default function IndustryDetail({ industry }) {
   const openRoles = workforce.filter((w) => w.industry === industry.name);
-  const availableCount = openRoles.reduce((sum, w) => sum + w.available, 0);
-  const activeCountries = [...new Set(openRoles.map((w) => w.country))]
-    .map((name) => countries.find((c) => c.name === name))
-    .filter(Boolean);
 
   return (
     <>
@@ -38,30 +33,12 @@ export default function IndustryDetail({ industry }) {
               <div className="mt-6 flex flex-wrap items-center gap-3 rounded-xl bg-muted p-4">
                 <Icon name="clipboard-list" className="h-6 w-6 text-gold" />
                 <p className="text-sm text-gray-600">
-                  <span className="font-semibold text-navy">{availableCount} workers</span>{" "}
-                  currently available across {openRoles.length} role
-                  {openRoles.length > 1 ? "s" : ""} in {industry.name}.{" "}
+                  <span className="font-semibold text-navy">Supplied on demand</span> — we
+                  provide as many {industry.name} workers as your requirement calls for.{" "}
                   <Link href="/workforce" className="font-semibold text-gold">
                     View availability →
                   </Link>
                 </p>
-              </div>
-            )}
-
-            {activeCountries.length > 0 && (
-              <div className="mt-6">
-                <h3 className="font-semibold text-navy">Where We Supply This Workforce</h3>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {activeCountries.map((c) => (
-                    <Link
-                      key={c.slug}
-                      href={`/countries/${c.slug}`}
-                      className="rounded-full bg-muted px-3 py-1 text-sm text-gray-600 hover:bg-border/60"
-                    >
-                      {c.flag} {c.name}
-                    </Link>
-                  ))}
-                </div>
               </div>
             )}
 
@@ -73,19 +50,17 @@ export default function IndustryDetail({ industry }) {
 
             {openRoles.length > 0 && (
               <div className="mt-10 overflow-x-auto rounded-2xl border border-border bg-white">
-                <table className="w-full min-w-[560px] text-sm">
+                <table className="w-full min-w-[480px] text-sm">
                   <thead>
                     <tr className="bg-navy text-white text-left">
                       <th className="px-4 py-3 font-semibold">Trade / Role</th>
-                      <th className="px-4 py-3 font-semibold">Country</th>
                       <th className="px-4 py-3 font-semibold">Description</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-border">
                     {openRoles.map((item) => (
-                      <tr key={`${item.title}-${item.country}`} className="hover:bg-muted">
+                      <tr key={item.title} className="hover:bg-muted">
                         <td className="px-4 py-3 font-medium text-navy">{item.title}</td>
-                        <td className="px-4 py-3 text-gray-600">{item.country}</td>
                         <td className="px-4 py-3 text-gray-600">{item.description}</td>
                       </tr>
                     ))}

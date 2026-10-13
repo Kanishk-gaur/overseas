@@ -3,14 +3,11 @@ import Link from "next/link";
 import PageHero from "./PageHero";
 import Breadcrumbs from "./Breadcrumbs";
 import Icon from "./Icon";
-import { workforce } from "@/data/workforce";
 import { caseStudies } from "@/data/caseStudies";
 import { posts } from "@/data/blog";
 import { getTermsByCountry } from "@/data/glossary";
 
 export default function CountryDetail({ country }) {
-  const openRoles = workforce.filter((w) => w.country === country.name);
-  const availableCount = openRoles.reduce((sum, w) => sum + w.available, 0);
   const caseStudy = caseStudies.find((cs) => cs.country === country.name);
   const relatedPosts = posts.filter((p) => p.countries?.includes(country.name));
   const relatedTerms = getTermsByCountry(country.name);
@@ -47,19 +44,16 @@ export default function CountryDetail({ country }) {
               )}
             </p>
 
-            {openRoles.length > 0 && (
-              <div className="mt-6 flex flex-wrap items-center gap-3 rounded-xl bg-muted p-4">
-                <Icon name="clipboard-list" className="h-6 w-6 text-gold" />
-                <p className="text-sm text-gray-600">
-                  <span className="font-semibold text-navy">{availableCount} workers</span>{" "}
-                  currently available across {openRoles.length} role
-                  {openRoles.length > 1 ? "s" : ""} for {country.name}.{" "}
-                  <Link href="/workforce" className="font-semibold text-gold">
-                    View availability →
-                  </Link>
-                </p>
-              </div>
-            )}
+            <div className="mt-6 flex flex-wrap items-center gap-3 rounded-xl bg-muted p-4">
+              <Icon name="clipboard-list" className="h-6 w-6 text-gold" />
+              <p className="text-sm text-gray-600">
+                <span className="font-semibold text-navy">Supplied on demand</span> — we
+                provide as many workers as your requirement calls for in {country.name}.{" "}
+                <Link href="/workforce" className="font-semibold text-gold">
+                  View availability →
+                </Link>
+              </p>
+            </div>
 
             <div className="mt-8">
               <Link href="/request-workforce" className="btn-primary !text-navy-dark bg-gold">
